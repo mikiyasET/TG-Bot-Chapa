@@ -16,9 +16,19 @@ bot.on('pre_checkout_query', async (ctx:any) => {
     await ctx.answerPreCheckoutQuery(true);
 });
 
+bot.on('shipping_query', async (ctx: any) => {
+    await ctx.answerShippingQuery(true, {
+        shipping_options: [{
+            id: '1',
+            title: 'Free Shipping',
+            prices: [{label: 'Free Shipping', amount: 0}],
+        }],
+    });
+});
+
 bot.on('successful_payment', async (ctx: any, next: any) => {
     const success = ctx.message.successful_payment;
-    await ctx.reply(`You have paid $${success.total_amount / 100} for test product`);
+    await ctx.reply(`You have paid ETB ${success.total_amount / 100} for test product`);
     return true;
 });
 

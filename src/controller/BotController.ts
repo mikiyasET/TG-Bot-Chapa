@@ -32,11 +32,13 @@ export class BotController {
         }
         else if (this.text == "invoice") {
                const invoice: any = {
-                   title: "Test Payment",
+                   title: "Chapa Test Payment",
                    photo_url: "https://pbs.twimg.com/media/FtIGHFzXwAYRsGE?format=jpg&name=large",
-                   description: "You can pay for your plan here",
-                   prices: [{label: "Test", amount: 50 * 100}],
-                   currency: "USD",
+                   description: "do your thing",
+                   prices: [{label: "ዶሮ", amount: 800 * 100}],
+                   suggested_tip_amounts: [50 * 100, 100*100, 300*100],
+                   max_tip_amount: 30000,
+                   currency: "ETB",
                    payload: `payload`,
                    start_parameter: "start",
                    provider_token: process.env.PAYMENT_KEY!
